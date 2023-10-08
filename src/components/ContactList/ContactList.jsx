@@ -1,6 +1,4 @@
 import { MdDeleteForever } from 'react-icons/md';
-
-import { getRandomHexColor } from '../utilits/RandomColor';
 import { List, ContactItem, User, DeleteContact } from "./ContactList.styled";
 
 export const ContactList = ({ users, onDeleteContact })=> {
