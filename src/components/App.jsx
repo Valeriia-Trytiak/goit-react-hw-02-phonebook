@@ -37,8 +37,12 @@ uppdateFilter = (searchName)=> {
   }));
 }
 
-searchContactToList = ()=> {
 
+//Видаляю контакт
+deleteContact = (contactId)=> {
+this.setState(prevState => ({
+  contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+}))
 }
 
   render() {
@@ -52,7 +56,7 @@ searchContactToList = ()=> {
    <ContactForm onUpdateContactList={this.addNewContact} />
    <h2>Contacts</h2>
    <Filter onSearchContact={this.uppdateFilter} filterName ={filter} />
-  <ContactList items= {visibleContacts} />
+  <ContactList users= {visibleContacts} onDeleteContact={this.deleteContact} />
     </div>
   }
 };

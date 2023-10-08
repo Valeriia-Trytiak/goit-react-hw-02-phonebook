@@ -1,14 +1,15 @@
-export const ContactList = ({ items })=> {
-    return <ul>
-            {items.map((contact) => (
-              <li key={contact.id}>
-                <span>{contact.name}: {contact.number}</span>
-                <button type="button">Delete</button>
-              </li>
+import { MdDeleteForever } from 'react-icons/md';
+
+import { getRandomHexColor } from '../utilits/RandomColor';
+import { List, ContactItem, User, DeleteContact } from "./ContactList.styled";
+
+export const ContactList = ({ users, onDeleteContact })=> {
+    return <List>
+            {users.map((user) => (
+              <ContactItem key={user.id}>
+                <User>{user.name}: {user.number}</User>
+                <DeleteContact type="button" onClick={()=> {onDeleteContact(user.id)}}><MdDeleteForever size={"24px"} /></DeleteContact>
+              </ContactItem>
             ))}
-          </ul>
-          
- 
-        
-      
+          </List>    
 }

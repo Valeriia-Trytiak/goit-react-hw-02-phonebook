@@ -1,5 +1,12 @@
+import { FiSearch } from 'react-icons/fi';
+import { Container, SearchField } from "./Filter.styled"
+
+
+
 export const Filter = ({ onSearchContact, filterName }) =>{
-    return <label>Find contacts by name
-        <input value={filterName} type="text" onChange={(e) => onSearchContact(e.target.value)}></input>
-    </label>
+    return <Container>
+        <label htmlFor="filter-input">Find contacts by name</label>
+        <SearchField value={filterName} type="text" onChange={(e) => onSearchContact(e.target.value)} id="filter-input"></SearchField>
+        <FiSearch />
+    </Container>
 }
